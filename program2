@@ -1,0 +1,46 @@
+/*Write a program to store the following details - Employee ID,Age,basic salary,
+ * Employee type(Permanent - P, Temporary -T), and Department. Calculate the
+ * salary of an employee based on the following, DA= 110% of Basic. Tax = 20% of
+ * basic + DA, Final salary = basic + DA - tax. Declare variables of appropriate
+ * data types, read the values from the user and display the output in the form
+ * of a employee salary slip.*/
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+  char EmployeeId[20];
+  int age;
+  float basic_salary;
+  char Employee_type;
+  char Department[20];
+  float DA, Tax, Final_salary;
+  printf("\nenter your employee ID="); scanf("%s", EmployeeId);
+  printf("\nenter your department="); scanf(" %s", Department);
+  printf("\nenter your age="); scanf("%d", &age);
+  printf("\nenter your basic salary="); scanf("%f", &basic_salary);
+  printf("\nenter your employee type=");  fflush(stdin);
+  scanf(" %c",&Employee_type);
+    printf("Employee type= %c \n", Employee_type);
+  DA = basic_salary * 110 / 100;
+  Tax = (basic_salary) * 20 / 100;
+  Final_salary = basic_salary + DA - Tax;
+  printf("\nEmployee ID=%s\n", EmployeeId);
+  printf("age=%d\n", age);
+  printf("basic ssalary=%f\n",basic_salary);
+  printf("Department=%s\n", Department);
+  printf("Employee type= %c \n", Employee_type);
+  printf("DA=%f\n", DA);
+  printf("Tax=%f\n", Tax);
+  printf("Final salary=%f\n",Final_salary);
+  
+   double Employee_salary;
+  float Experience;
+  printf("\n\nenter your experience="); scanf("%f", &Experience);
+  if(Employee_type=='p')
+  {Employee_salary=1000.0*365;}
+  else if(Employee_type=='t')
+  {Employee_salary=400.0*365;}
+  else{printf("no condition exicuted");}
+  Employee_salary += Experience * 1000;
+  printf("employee salary per annum is = %lf",Employee_salary);
+  return(0);
+}
