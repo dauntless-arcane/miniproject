@@ -1,37 +1,69 @@
-/Write a program to include an Exit Option by the user. The menu should be displayed, only if the user selects the option 4. Exit should the loop run. Use do while to implement the same. Extend the previous program to implement the program./
-
+/*Write a program to include an Exit Option by the user. The menu should be displayed, only if the user selects the option 4. Exit should the loop run. Use do while to implement the same. Extend the previous program to implement the program.*/
 #include <stdio.h>
 
-int main() {
+int main() 
+{
     int choice;
+    float basicSalary = 0, hra = 0, da = 0, ma = 0;
 
     do {
-        printf("Menu:\n");
-        printf("1. Client details\n");
-        printf("2. Property Estimate\n");
-        printf("3. Option 3\n");
-        printf("4. Exit\n");
-
-        printf("Enter your choice: ");
+        printf("\n\nMenu:\n");
+        printf("1. Employee details\n");
+        printf("2. Employee salary\n");
+        printf("3. Exit\n");
+        printf("\nEnter your choice: ");
         scanf("%d", &choice);
 
-        switch (choice) {
+        switch(choice) {
             case 1:
-                printf("You chose Client details\n");
+                char EmployeeId[20];
+                int age;
+                float basic_salary;
+                char Employee_type[1];
+                char Department[20];
+                
+                printf("\nenter your employee ID="); scanf("%s", EmployeeId);
+                printf("\nenter your department="); scanf(" %s", Department);
+                printf("\nenter your age="); scanf("%d", &age);
+                printf("\nenter your basic salary="); scanf("%f", &basic_salary);
+                printf("\nenter your employee type=");  
+                scanf("%s",Employee_type);
+                printf("\nEmployee ID=%s\n", EmployeeId);
+                printf("age=%d\n", age);
+                printf("basic ssalary=%f\n",basic_salary);
+                printf("Department=%s\n", Department);
+                printf("Employee type= %s \n", Employee_type);
                 break;
+              
             case 2:
-                printf("You chose Property Estimate\n");
+              printf("Enter Basic Salary: ");
+                scanf("%f", &basicSalary);
+                printf("Enter HRA: ");
+                scanf("%f", &hra);
+                printf("Enter DA: ");
+                scanf("%f", &da);
+                printf("Enter MA: ");
+                scanf("%f", &ma);
+                
+                if (basicSalary == 0) {
+                    printf("Please enter employee details first.\n");
+                } else {
+                    float grossSalary = basicSalary + hra + da + ma;
+                    float pfContribution = 0.12 * basicSalary;
+                    float professionalTax = 200;
+                    float incomeTax = 0.2 * grossSalary;
+                    float deductions = pfContribution + professionalTax + incomeTax;
+                    float netSalary = grossSalary - deductions;
+                    printf("Net Salary: %.2f\n", netSalary);
+                }
                 break;
             case 3:
-                printf("You chose Option 3\n");
-                break;
-            case 4:
-                printf("Exiting the program. Goodbye!\n");exit(0);
+                printf("thank you !!!\n\nExiting program...\n");
                 break;
             default:
-                printf("Invalid choice. Please enter a number between 1 and 4.\n\n");
+                printf("Invalid choice. Please try again.\n");
         }
-    } while (1);
+    } while (choice != 3);
 
     return 0;
 }
