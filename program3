@@ -16,11 +16,10 @@ int main()
     int choice;
     float basicSalary = 0, hra = 0, da = 0, ma = 0;
 
-    do {
+    
         printf("\n\nMenu:\n");
         printf("1. Employee details\n");
         printf("2. Employee salary\n");
-        printf("3. Exit\n");
         printf("\nEnter your choice: ");
         scanf("%d", &choice);
 
@@ -67,13 +66,10 @@ int main()
                     printf("Net Salary: %.2f\n", netSalary);
                 }
                 break;
-            case 3:
-                printf("thank you !!!\n\nExiting program...\n");
-                break;
-            default:
+          default:
                 printf("Invalid choice. Please try again.\n");
         }
-    } while (choice != 3);
+    
 
     return 0;
 }
