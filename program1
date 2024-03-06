@@ -5,28 +5,31 @@
  * data types, read the values from the user and display the output in the form
  * of a employee salary slip.*/
 #include <stdio.h>
+#include <stdlib.h>
 int main() {
   char EmployeeId[20];
   int age;
   float basic_salary;
-  char Employee_type;
+  char Employee_type[1];
   char Department[20];
   float DA, Tax, Final_salary;
-  printf("enter your employee ID="); scanf("%s", EmployeeId);
-  printf("enter your age="); scanf("%d", &age);
-  printf("enetr your basic salary="); scanf("%f", &basic_salary);
-  printf("enter your employee type="); scanf("%c ",&Employee_type);
-  printf("enter your department="); scanf("%s", Department);
+  printf("\nenter your employee ID="); scanf("%s", EmployeeId);
+  printf("\nenter your department="); scanf(" %s", Department);
+  printf("\nenter your age="); scanf("%d", &age);
+  printf("\nenter your basic salary="); scanf("%f", &basic_salary);
+  printf("\nenter your employee type=");  
+  scanf("%s",Employee_type);
+  
   DA = basic_salary * 110 / 100;
   Tax = (basic_salary) * 20 / 100;
   Final_salary = basic_salary + DA - Tax;
-  printf("Employee ID=%s\n", EmployeeId);
+  printf("\nEmployee ID=%s\n", EmployeeId);
   printf("age=%d\n", age);
   printf("basic ssalary=%f\n",basic_salary);
-  printf("Employee type=%c\n", Employee_type);
   printf("Department=%s\n", Department);
+  printf("Employee type= %s \n", Employee_type);
   printf("DA=%f\n", DA);
   printf("Tax=%f\n", Tax);
-  printf(" Final salary=%f\n",Final_salary);
+  printf("Final salary=%f\n",Final_salary);
   return(0);
 }
