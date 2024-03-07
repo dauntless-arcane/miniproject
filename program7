@@ -1,0 +1,26 @@
+/*Write a program to read n number of Employee_ids and total amount paid (for permanent and contract employee) into an array. Calculate the total amount spent by the Account Manager and display the same in the form of Accounts balance sheet. Implement the same using pointers.*/
+#include<stdio.h>
+int main()
+{
+  int n;
+  printf("enter the number of employees"); scanf("%d",&n);
+  char EmployeeId[20][n];
+  int amount_paid[n];
+  int i,j;
+  for(i=0;i<n;i++)
+    {
+      printf("\nenter your employee ID=");scanf(" %[^\n]",EmployeeId[i]);
+      printf("\nenter the amount paid=");scanf("%d",&amount_paid[i]);
+      
+      
+    }
+
+  for(i=0;i<n;i++)
+      {
+        printf("\nemployee ID= %s",EmployeeId[i]);
+        printf("\namount paid=%d",amount_paid[i]);
+
+
+      }
+  return(0);
+  }
