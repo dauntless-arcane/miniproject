@@ -1,0 +1,31 @@
+/*Write a program to implement arrays to store multiple Employee details. Implement a logic to search for a Employee details using binary search.*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+int main()
+{
+int n;
+printf("enter the number of employees"); scanf("%d",&n);
+char EmployeeId[20][n];
+int age[n];
+float basic_salary[n];
+char Employee_type[1][n];
+char Department[20][n];
+
+for(int i=0;i<n;i++)
+  {
+printf("\nenter your employee ID="); scanf("%s", EmployeeId);
+printf("\nenter your department="); scanf(" %s", Department);
+printf("\nenter your age="); scanf("%d", &age);
+printf("\nenter your basic salary="); scanf("%f", &basic_salary);
+printf("\nenter your employee type=");  
+scanf("%s",Employee_type);
+}
+printf("what do you want to search for ?? \n1.Employee ID\n2.Employee type\n3.Employee department\n4.Employee age\n5.Employee basic salary");
+int choice;
+  switch(choice)
+    {
+      case 1: 
+    }
+    return 0;
+}
