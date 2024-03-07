@@ -6,7 +6,7 @@ int main()
 {
 int n;
 printf("enter the number of employees"); scanf("%d",&n);
-char EmployeeId[20][n];
+int EmployeeId[n];
 int age[n];
 float basic_salary[n];
 char Employee_type[n];
@@ -14,7 +14,7 @@ char Department[20][n];
 int i,j;
 for(i=0;i<n;i++)
   {
-printf("\nenter your employee ID="); scanf("%s", EmployeeId[i]);
+printf("\nenter your employee ID="); scanf("%d", EmployeeId[i]);
 printf("\nenter your department="); scanf(" %s", Department[i]);
 printf("\nenter your age="); scanf("%d", &age[i]);
 printf("\nenter your basic salary="); scanf("%f", &basic_salary[i]);
@@ -25,7 +25,7 @@ scanf(" %c", &Employee_type[i]);
   
       for(j=0;j<n;j++)
         {
-  printf("\nenter your employee ID= %s", EmployeeId[j]); 
+  printf("\nenter your employee ID= %d", EmployeeId[j]); 
   printf("\nenter your department=%s", Department[j]); 
   printf("\nenter your age=%d", age[j]);
   printf("\nenter your basic salary=%f",basic_salary[j]); 
@@ -34,12 +34,12 @@ scanf(" %c", &Employee_type[i]);
   }
   char searched_employee_id[20];
 printf("\nenter the Employee ID you want to search for=");
-  scanf("%s",searched_employee_id);
+  scanf("%d",searched_employee_id);
   int index;
   for(i=0;i<n;i++)
     {
       printf("printing i==%d",i);
-      if(strcmp(EmployeeId[i],searched_employee_id)==0)
+      if(EmployeeId==searched_employee_id)
       {
          index=i;
         printf("printing index==%d",index);
