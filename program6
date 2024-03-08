@@ -1,0 +1,65 @@
+/*write a program to implement user defined functions to implement the following functionality 1. Human_resource procurement details 2. Salary_Calculation 3. Employee Data_collection*/
+#include <stdio.h>
+void Human_resource_procurement_details() {
+    char  name[20], department[20], position[20], date_of_birth[11],  email[30];
+  int employee_id;
+    long contact_number;
+    printf("\nEnter employee ID: ");
+    scanf("%d",&employee_id);
+    printf("\nEnter employee name: ");
+    scanf("%s", name);
+  printf("\nEnter your age="); scanf("%d", &age);
+    printf("\nEnter date of birth (YYYY-MM-DD): ");
+    scanf("%s", date_of_birth);
+    printf("\nEnter contact number: ");
+    scanf("%ld",&contact_number);
+    printf("\nEnter email address: ");
+    scanf("%s", email);
+
+    
+    printf("\n\nHuman resource of employee procured sucessfully!\n");
+}
+void Employee_Data_collection() {
+  int EmployeeId;
+  int age;
+  float basic_salary;
+  char Employee_type;
+  char Department[20],department[20], position[20];
+  printf("\nEnter your employee ID="); scanf("%d",&EmployeeId);
+  printf("\nEnter department: ");
+  scanf("%s", department);
+  printf("\nEnter position: ");
+  scanf("%s", position);
+  printf("\nEnter your age="); scanf("%d", &age);
+  printf("\nEnter your basic salary="); scanf("%f", &basic_salary);
+  printf("\nEnter your employee type="); scanf("%c ",&Employee_type);
+  printf("\nEnter your department="); scanf("%s", Department);
+  printf("\n\nEmployee details collected sucessfully");
+}
+
+void Salary_Calculation()
+{
+  printf("Enter Basic Salary: ");
+    scanf("%f", &basicSalary);
+    printf("Enter HRA: ");
+    scanf("%f", &hra);
+    printf("Enter DA: ");
+    scanf("%f", &da);
+    printf("Enter MA: ");
+    scanf("%f", &ma);
+
+    if (basicSalary == 0) {
+        printf("Please enter the salary\n");
+    } else {
+        float grossSalary = basicSalary + hra + da + ma;
+        float pfContribution = 0.12 * basicSalary;
+        float professionalTax = 200;
+        float incomeTax = 0.2 * grossSalary;
+        float deductions = pfContribution + professionalTax + incomeTax;
+        float netSalary = grossSalary - deductions;
+        printf("Net Salary: %.2f\n", netSalary);
+    }
+    
+
+}
+
