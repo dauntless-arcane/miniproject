@@ -11,7 +11,7 @@ int main()
     {
       printf("\nenter your employee ID=");scanf(" %d",EmployeeId[i]);
       printf("\nenter the amount paid=");scanf("%d",&amount_paid[i]);
-      
+       
       
     }
 

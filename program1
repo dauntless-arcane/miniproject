@@ -1,35 +1,69 @@
-/*Write a program to store the following details - Employee ID,Age,basic salary,
+/* program 1
+ * Write a program to store the following details - Employee ID,Age,basic salary,   
  * Employee type(Permanent - P, Temporary -T), and Department. Calculate the
  * salary of an employee based on the following, DA= 110% of Basic. Tax = 20% of
  * basic + DA, Final salary = basic + DA - tax. Declare variables of appropriate
  * data types, read the values from the user and display the output in the form
  * of a employee salary slip.*/
 #include <stdio.h>
-#include <stdlib.h>
-int main() {
-  char EmployeeId[20];
+int main() 
+{
+  int EmployeeId;
   int age;
   float basic_salary;
-  char Employee_type[1];
+  char Employee_type;
   char Department[20];
   float DA, Tax, Final_salary;
-  printf("\nenter your employee ID="); scanf("%s", EmployeeId);
+  printf("\nenter your employee ID(numeric)="); scanf("%d",&EmployeeId);
   printf("\nenter your department="); scanf(" %s", Department);
   printf("\nenter your age="); scanf("%d", &age);
   printf("\nenter your basic salary="); scanf("%f", &basic_salary);
-  printf("\nenter your employee type=");  
-  scanf("%s",Employee_type);
+  printf("\nenter your employee type=");  scanf(" %c",&Employee_type);
   
   DA = basic_salary * 110 / 100;
   Tax = (basic_salary) * 20 / 100;
   Final_salary = basic_salary + DA - Tax;
-  printf("\nEmployee ID=%s\n", EmployeeId);
-  printf("age=%d\n", age);
-  printf("basic ssalary=%f\n",basic_salary);
-  printf("Department=%s\n", Department);
-  printf("Employee type= %s \n", Employee_type);
-  printf("DA=%f\n", DA);
-  printf("Tax=%f\n", Tax);
-  printf("Final salary=%f\n",Final_salary);
+  printf("\n\n\nEmployee ID=%d\n", EmployeeId);
+  printf("\nage=%d\n", age);
+  printf("\nbasic ssalary=%f\n",basic_salary);
+  printf("\nDepartment=%s\n", Department);
+  printf("\nEmployee type= %c \n", Employee_type);
+  printf("\nDA=%f\n", DA);
+  printf("\nTax=%f\n", Tax);
+  printf("\nFinal salary=%f\n",Final_salary);
   return(0);
 }
+
+
+/* output:
+
+
+enter your employee ID(numeric)=2360474
+
+enter your department=science
+
+enter your age=19
+
+enter your basic salary=300000
+
+enter your employee type=p
+
+
+
+Employee ID=2360474
+
+age=19
+
+basic ssalary=300000.000000
+
+Department=science
+
+Employee type= p
+
+DA=330000.000000
+
+Tax=60000.000000
+
+Final salary=570000.000000
+
+*/

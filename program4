@@ -1,4 +1,8 @@
-/*Write a program to include an Exit Option by the user. The menu should be displayed, only if the user selects the option 4. Exit should the loop run. Use do while to implement the same. Extend the previous program to implement the program.*/
+/*Write a program to include an Exit Option by the user. 
+ *The menu should be displayed, only if the user selects the option 
+ *4. Exit should the loop run.
+ *Use do while to implement the same. 
+ *Extend the previous program to implement the program.*/
 #include <stdio.h>
 
 int main() 
@@ -15,34 +19,34 @@ int main()
         scanf("%d", &choice);
 
         switch(choice) {
-            case 1:
-                char EmployeeId[20];
+            case 1:{
+				
+                int EmployeeId;
                 int age;
                 float basic_salary;
                 char Employee_type[1];
                 char Department[20];
                 
-                printf("\nenter your employee ID="); scanf("%s", EmployeeId);
+                printf("\nenter your employee ID="); scanf("%d", &EmployeeId);
                 printf("\nenter your department="); scanf(" %s", Department);
                 printf("\nenter your age="); scanf("%d", &age);
                 printf("\nenter your basic salary="); scanf("%f", &basic_salary);
-                printf("\nenter your employee type=");  
-                scanf("%s",Employee_type);
-                printf("\nEmployee ID=%s\n", EmployeeId);
+                printf("\nenter your employee type="); scanf("%s",Employee_type);
+                printf("\nEmployee ID=%d\n", EmployeeId);
                 printf("age=%d\n", age);
                 printf("basic ssalary=%f\n",basic_salary);
                 printf("Department=%s\n", Department);
                 printf("Employee type= %s \n", Employee_type);
-                break;
+                break;}
               
             case 2:
-              printf("Enter Basic Salary: ");
+              printf("\nEnter Basic Salary: ");
                 scanf("%f", &basicSalary);
-                printf("Enter HRA: ");
+                printf("\nEnter HRA: ");
                 scanf("%f", &hra);
-                printf("Enter DA: ");
+                printf("\nEnter DA: ");
                 scanf("%f", &da);
-                printf("Enter MA: ");
+                printf("\nEnter MA: ");
                 scanf("%f", &ma);
                 
                 if (basicSalary == 0) {
@@ -54,16 +58,71 @@ int main()
                     float incomeTax = 0.2 * grossSalary;
                     float deductions = pfContribution + professionalTax + incomeTax;
                     float netSalary = grossSalary - deductions;
-                    printf("Net Salary: %.2f\n", netSalary);
+                    printf("\nNet Salary: %.2f\n", netSalary);
                 }
                 break;
             case 3:
-                printf("thank you !!!\n\nExiting program...\n");
+                printf("\nthank you !!!\n\nExiting program...\n");
                 break;
             default:
-                printf("Invalid choice. Please try again.\n");
+                printf("\nInvalid choice. Please try again.\n");
         }
     } while (choice != 3);
 
     return 0;
 }
+/* OUTPUT
+
+Menu:
+1. Employee details
+2. Employee salary
+3. Exit
+
+Enter your choice: 1
+
+enter your employee ID=123456
+
+enter your department=science
+
+enter your age=19
+
+enter your basic salary=300000
+
+enter your employee type=p
+
+Employee ID=123456
+age=19
+basic ssalary=300000.000000
+Department=science
+Employee type= p
+
+
+Menu:
+1. Employee details
+2. Employee salary
+3. Exit
+
+Enter your choice: 2
+
+Enter Basic Salary: 300000
+
+Enter HRA: 2000
+
+Enter DA: 2000
+
+Enter MA: 20000
+
+Net Salary: 223000.00
+
+
+Menu:
+1. Employee details
+2. Employee salary
+3. Exit
+
+Enter your choice: 3
+
+thank you !!!
+
+Exiting program...
+*/

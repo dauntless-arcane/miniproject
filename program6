@@ -1,52 +1,68 @@
 /*write a program to implement user defined functions to implement the following functionality 1. Human_resource procurement details 2. Salary_Calculation 3. Employee Data_collection*/
 #include <stdio.h>
-void Human_resource_procurement_details() {
-    char  name[20], department[20], position[20], date_of_birth[11],  email[30];
-  int employee_id;
-    long contact_number;
-    printf("\nEnter employee ID: ");
-    scanf("%d",&employee_id);
-    printf("\nEnter employee name: ");
-    scanf("%s", name);
-  printf("\nEnter your age="); scanf("%d", &age);
-    printf("\nEnter date of birth (YYYY-MM-DD): ");
-    scanf("%s", date_of_birth);
-    printf("\nEnter contact number: ");
-    scanf("%ld",&contact_number);
-    printf("\nEnter email address: ");
-    scanf("%s", email);
-
-    
-    printf("\n\nHuman resource of employee procured sucessfully!\n");
+void Human_Resource_Procurement_Details();
+void Employee_Data_Collection() ;
+void Salary_Calculation();  
+int main()
+{
+	int choice;
+	printf("\nmenu:\n\n1. Human_resource procurement details\n2. Salary_Calculation\n3. Employee Data_collection\n\n\nenter your choice:   ");
+	scanf("%d",&choice);
+	switch(choice)
+	{
+		case 1:{
+			Human_Resource_Procurement_Details();
+			break;
+		}
+		case 2:{
+			Salary_Calculation();
+			break;
+		}
+		case 3:{
+			Employee_Data_Collection();
+			break;
+		}
+		default :{
+			printf("\ninvalid choice please try again!!");
+			break;
+		}
+	}
+	return 0;
 }
-void Employee_Data_collection() {
+
+void Human_Resource_Procurement_Details() {
+    char  name[20], department[20], position[20], date_of_birth[11],  email[30];
+    int employee_id;int age;
+    long contact_number;
+    printf("\nEnter employee ID: ");scanf("%d",&employee_id);
+    printf("\nEnter employee name: ");scanf("%s", name);
+    printf("\nEnter your age="); scanf("%d", &age);
+    printf("\nEnter date of birth (YYYY-MM-DD): ");scanf("%s", date_of_birth);
+    printf("\nEnter contact number: ");scanf("%ld",&contact_number);
+    printf("\nEnter email address: ");scanf("%s", email);
+	printf("\n\nHuman resource of employee procured sucessfully!\n");
+}
+
+void Employee_Data_Collection() {
   int EmployeeId;
-  int age;
   float basic_salary;
   char Employee_type;
-  char Department[20],department[20], position[20];
-  printf("\nEnter your employee ID="); scanf("%d",&EmployeeId);
-  printf("\nEnter department: ");
-  scanf("%s", department);
-  printf("\nEnter position: ");
-  scanf("%s", position);
-  printf("\nEnter your age="); scanf("%d", &age);
-  printf("\nEnter your basic salary="); scanf("%f", &basic_salary);
-  printf("\nEnter your employee type="); scanf("%c ",&Employee_type);
-  printf("\nEnter your department="); scanf("%s", Department);
+  char Department[20],position[20];
+  printf("\nEnter your employee ID=");scanf("%d",&EmployeeId);
+  printf("\nEnter position: ");scanf("%s", position);
+  printf("\nEnter your basic salary=");scanf("%f", &basic_salary);
+  printf("\nEnter your employee type=");scanf("%c ",&Employee_type);
+  printf("\nEnter your department=");scanf("%s", Department);
   printf("\n\nEmployee details collected sucessfully");
 }
 
 void Salary_Calculation()
 {
-  printf("Enter Basic Salary: ");
-    scanf("%f", &basicSalary);
-    printf("Enter HRA: ");
-    scanf("%f", &hra);
-    printf("Enter DA: ");
-    scanf("%f", &da);
-    printf("Enter MA: ");
-    scanf("%f", &ma);
+	float basicSalary,hra,da,ma;
+    printf("Enter Basic Salary: ");scanf("%f",&basicSalary);
+    printf("Enter HRA: ");scanf("%f", &hra);
+    printf("Enter DA: ");scanf("%f", &da);
+    printf("Enter MA: ");scanf("%f", &ma);
 
     if (basicSalary == 0) {
         printf("Please enter the salary\n");
@@ -59,7 +75,30 @@ void Salary_Calculation()
         float netSalary = grossSalary - deductions;
         printf("Net Salary: %.2f\n", netSalary);
     }
-    
-
 }
 
+/*OUTPUT
+menu:
+
+1. Human_resource procurement details
+2. Salary_Calculation
+3. Employee Data_collection
+
+
+enter your choice:   1
+
+Enter employee ID: 2360474
+
+Enter employee name: tharunj
+
+Enter your age=19
+
+Enter date of birth (YYYY-MM-DD): 2004-11-25
+
+Enter contact number: 8904739898
+
+Enter email address: tharun.jeevakanth@btech.christuniversity.in
+
+
+Human resource of employee procured sucessfully!
+*/
