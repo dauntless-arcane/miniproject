@@ -1,4 +1,5 @@
-/*"write a program to implement the following menu : 1. Employee details 2. Employee salary. Calculate the salalry according to the following rules: Gross salary - Basic + HRA + DA + MA
+/* program 3
+"write a program to implement the following menu : 1. Employee details 2. Employee salary. Calculate the salalry according to the following rules: Gross salary - Basic + HRA + DA + MA
 Basic = Basic Salary
 HRA = House Rent Allowance
 DA = Dearness Allowance
@@ -8,7 +9,7 @@ Employee PF Contribution of 12%
 
 Professional Tax (state-specific) ( Rs 200/- )
 Income Tax (20% of total salary)
-So, Net Salary = Basic + Additions (bonuses, allowances) – Deductions."*/
+So, Net Salary = Basic + Additions (bonuses, allowances) – Deductions.""*/
 #include <stdio.h>
 
 int main() 
@@ -24,38 +25,41 @@ int main()
         scanf("%d", &choice);
 
         switch(choice) {
-            case 1:
-                char EmployeeId[20];
+            case 1:{
+				
+			
+                int EmployeeId;
                 int age;
                 float basic_salary;
-                char Employee_type[1];
+                char Employee_type;
                 char Department[20];
                 
-                printf("\nenter your employee ID="); scanf("%s", EmployeeId);
+                printf("\nenter your employee ID="); scanf("%d", &EmployeeId);
                 printf("\nenter your department="); scanf(" %s", Department);
                 printf("\nenter your age="); scanf("%d", &age);
                 printf("\nenter your basic salary="); scanf("%f", &basic_salary);
                 printf("\nenter your employee type=");  
-                scanf("%s",Employee_type);
-                printf("\nEmployee ID=%s\n", EmployeeId);
+                scanf(" %c",&Employee_type);
+                printf("\nEmployee ID=%d\n", EmployeeId);
                 printf("age=%d\n", age);
                 printf("basic ssalary=%f\n",basic_salary);
                 printf("Department=%s\n", Department);
-                printf("Employee type= %s \n", Employee_type);
+                printf("Employee type= %c \n", Employee_type);
                 break;
+            }
               
             case 2:
-              printf("Enter Basic Salary: ");
+              printf("\n\nEnter Basic Salary: ");
                 scanf("%f", &basicSalary);
-                printf("Enter HRA: ");
+                printf("\nEnter HRA: ");
                 scanf("%f", &hra);
-                printf("Enter DA: ");
+                printf("\nEnter DA: ");
                 scanf("%f", &da);
-                printf("Enter MA: ");
+                printf("\nEnter MA: ");
                 scanf("%f", &ma);
                 
                 if (basicSalary == 0) {
-                    printf("Please enter employee details first.\n");
+                    printf("\n\nPlease enter the correct basic salary\n");
                 } else {
                     float grossSalary = basicSalary + hra + da + ma;
                     float pfContribution = 0.12 * basicSalary;
@@ -63,13 +67,33 @@ int main()
                     float incomeTax = 0.2 * grossSalary;
                     float deductions = pfContribution + professionalTax + incomeTax;
                     float netSalary = grossSalary - deductions;
-                    printf("Net Salary: %.2f\n", netSalary);
+                    printf("\nNet Salary: %.2f\n", netSalary);
                 }
                 break;
           default:
-                printf("Invalid choice. Please try again.\n");
+                printf("\nInvalid choice. Please try again.\n");
         }
     
 
     return 0;
 }
+
+/* OUTPUT:
+
+Menu:
+1. Employee details
+2. Employee salary
+
+Enter your choice: 2
+
+
+Enter Basic Salary: 500000
+
+Enter HRA: 3000
+
+Enter DA: 2000
+
+Enter MA: 1000
+
+Net Salary: 344600.00
+*/
