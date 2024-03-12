@@ -2,7 +2,7 @@
 #include <stdio.h>
 void Human_Resource_Procurement_Details();
 void Employee_Data_Collection() ;
-void Salary_Calculation(); 
+void Salary_Calculation();  
 int main()
 {
 	int choice;
