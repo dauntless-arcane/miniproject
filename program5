@@ -1,4 +1,5 @@
-/*Write a program to implement arrays to store multiple Employee details. Implement a logic to search for a Employee details using binary search.*/
+/*Write a program to implement arrays to store multiple Employee details. 
+ *Implement a logic to search for a Employee details using binary search.*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -11,10 +12,14 @@ int age[n];
 float basic_salary[n];
 char Employee_type[n];
 char Department[20][n];
+int searched_employee_id;
+int mid,top,bottom,temp_int,index=-1;
+float temp_float;
+char temp_char,temp_char1[20];
 int i,j;
-for(i=0;i<n;i++)
+for(i=0;i<n;i++)//accepting values into arrays
   {
-printf("\nenter your employee ID="); scanf("%d", EmployeeId[i]);
+printf("\nenter your employee ID="); scanf("%d",&EmployeeId[i]);
 printf("\nenter your department="); scanf(" %s", Department[i]);
 printf("\nenter your age="); scanf("%d", &age[i]);
 printf("\nenter your basic salary="); scanf("%f", &basic_salary[i]);
@@ -23,27 +28,151 @@ scanf(" %c", &Employee_type[i]);
 }
   
   
-      for(j=0;j<n;j++)
+      for(i=0;i<n;i++)//printing all the values
         {
-  printf("\nenter your employee ID= %d", EmployeeId[j]); 
-  printf("\nenter your department=%s", Department[j]); 
-  printf("\nenter your age=%d", age[j]);
-  printf("\nenter your basic salary=%f",basic_salary[j]); 
-  printf("\nenter your employee type= %c", Employee_type[j]);  
-  
+  printf("\nemployee ID of person%d= %d",i,EmployeeId[i]); 
+  printf("\ndepartment of person%d=%s",i,Department[i]); 
+  printf("\nage of person%d=%d",i,age[i]);
+  printf("\nbasic salary of person%d=%f",i,basic_salary[i]); 
+  printf("\nemployee type of person%d= %c",i,Employee_type[i]);  
+  printf("\n");
   }
-  char searched_employee_id[20];
-printf("\nenter the Employee ID you want to search for=");
-  scanf("%d",searched_employee_id);
-  int index;
-  for(i=0;i<n;i++)
-    {
-      printf("printing i==%d",i);
-      if(EmployeeId==searched_employee_id)
-      {
-         index=i;
-        printf("printing index==%d",index);
-      }
+ printf("\nenter the Employee ID you want to search for=");
+ scanf("%d",&searched_employee_id); 
+ for(i=0;i<n-1;i++) //sorting the array
+ {
+
+     if(EmployeeId[i]>EmployeeId[i+1])
+       {
+          temp_int=EmployeeId[i+1];EmployeeId[i+1]=EmployeeId[i];EmployeeId[i]=temp_int;
+          temp_float=basic_salary[i+1];basic_salary[i+1]=basic_salary[i];basic_salary[i]=temp_float;
+          temp_char=Employee_type[i+1];Employee_type[i+1]=Employee_type[i];Employee_type[i]=temp_char;
+          temp_char1[20]=Department[20][i+1];Department[20][i+1]=Department[20][i];Department[20][i]=temp_char1[20];
+          
+       }
     }
-    return 0;
+    printf("\n\n\n\n");
+    for(i=0;i<n;i++) //printing the sorted array
+	{
+      printf("%d\n",EmployeeId[i]);
+    }
+printf("all array elements have now been sorted");
+bottom=0;top=n-1;
+while(bottom<=top)//binary search
+{
+mid=(top+bottom)/2;
+printf("\nmid val1= %d",mid);
+if(EmployeeId[mid]==searched_employee_id){
+index=mid;	
+printf("\nelement is found in location %d",mid+1);
+break;
 }
+if (searched_employee_id>EmployeeId[mid])
+{
+printf("\nmid val2= %d",mid);
+bottom=mid+1;
+}
+if (searched_employee_id<EmployeeId[mid]) {
+printf("\nmid val3= %d",mid);
+top=mid-1;
+}
+
+
+printf("\nmid val4= %d",mid);
+
+
+}
+//printing details of searched array
+if(index==-1){
+	printf("\n\nelement not found!");
+}
+else 
+{
+	printf("\n\nelement is at location %d of the array",index);
+	printf("\n ");
+	    
+  printf("\nemployee ID= %d",EmployeeId[index]); 
+  printf("\ndepartment =%s",Department[index]); 
+  printf("\nage of =%d",age[index]);
+  printf("\nbasic salary =%f",basic_salary[index]); 
+  printf("\nemployee type= %c",Employee_type[index]);  
+ 
+  
+}
+
+ return 0;
+}
+/*OUTPUT
+enter the number of employees3
+
+enter your employee ID=1
+
+enter your department=cs
+
+enter your age=19
+
+enter your basic salary=30000
+
+enter your employee type=p
+
+enter your employee ID=2
+
+enter your department=cs
+
+enter your age=23
+
+enter your basic salary=454545
+
+enter your employee type=p
+
+enter your employee ID=32
+
+enter your department=eee
+
+enter your age=22
+
+enter your basic salary=50000
+
+enter your employee type=p
+
+employee ID of person0= 1
+department of person0=cs
+age of person0=19
+basic salary of person0=30000.000000
+employee type of person0= p
+
+employee ID of person1= 2
+department of person1=cs
+age of person1=23
+basic salary of person1=454545.000000
+employee type of person1= p
+
+employee ID of person2= 32
+department of person2=eee
+age of person2=22
+basic salary of person2=50000.000000
+employee type of person2= p
+
+enter the Employee ID you want to search for=32
+
+
+
+
+1
+2
+32
+all array elements have now been sorted
+mid val1= 1
+mid val2= 1
+mid val4= 1
+mid val1= 2
+element is found in location 3
+
+element is at location 2 of the array
+
+employee ID= 32
+department =eee
+age of =22
+basic salary =50000.000000
+employee type= p
+*/
