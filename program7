@@ -1,26 +1,48 @@
-/*Write a program to read n number of Employee_ids and total amount paid (for permanent and contract employee) into an array. Calculate the total amount spent by the Account Manager and display the same in the form of Accounts balance sheet. Implement the same using pointers.*/
+/*Write a program to read n number of Employee_ids and total amount paid (for permanent and contract employee) into an array. 
+ *Calculate the total amount spent by the Account Manager and display the same in the form of Accounts balance sheet. 
+ Implement the same using pointers./
 #include<stdio.h>
 int main()
 {
   int n;
   printf("enter the number of employees"); scanf("%d",&n);
   int EmployeeId[n];
-  int amount_paid[n];
+  int amount_paid[n],total_amount_paid;
   int i,j;
-  for(i=0;i<n;i++)
+  char Employee_type[n];
+  for(i=0;i<n;i++)// accepting values
     {
-      printf("\nenter your employee ID=");scanf(" %d",EmployeeId[i]);
-      printf("\nenter the amount paid=");scanf("%d",&amount_paid[i]);
-       
-      
+      printf("\nenter your employee ID: ");scanf(" %d",&EmployeeId[i]);
+      printf("\nenter the amount paid: ");scanf("%d",&amount_paid[i]);
+      printf("\enter the employee type(p=permanent,c=contract,t=temporary) :  ");scanf(" %c",&Employee_type[i]); 
     }
-
-  for(i=0;i<n;i++)
+if(Employee_type==p||Employee_type==c)
+{
+printf("\nemployee ID\tamount paid\temployee type\n");
+  for(i=0;i<n;i++)// displaying the accepted values
       {
-        printf("\nemployee ID= %d",EmployeeId[i]);
-        printf("\namount paid=%d",amount_paid[i]);
-
-
+      	printf(" %d\t\t",EmployeeId[i]);
+        printf(" %d\t\t",amount_paid[i]);
+        printf(" %c",Employee_type[i]);
+        total_amount_paid+=amount_paid[i];
+        printf("\n");
+        
       }
+printf("total amount spent by the manager=%d",total_amount_paid);
+
+}
+else
+{
+printf("\nemployee ID\tamount paid\temployee type\n");
+  for(i=0;i<n;i++)// displaying the accepted values
+      {
+      	printf(" %d\t\t",EmployeeId[i]);
+        printf(" %d\t\t",amount_paid[i]);
+        printf(" %c",Employee_type[i]);
+        printf("\n");
+      }
+}
+      
+      
   return(0);
   }
